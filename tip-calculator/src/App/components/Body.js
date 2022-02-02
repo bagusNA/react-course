@@ -20,7 +20,7 @@ export default function Body() {
             <Button name="tip" value="15"/>
             <Button name="tip" value="25"/>
             <Button name="tip" value="50"/>
-            <Button name="tip" value="custom"/>
+            {/* <Button name="tip" value="custom"/> */}
           </div>
         </div>
         <Input title="Number of People" icon={<IconPeople/>} placeholder="0"/>
