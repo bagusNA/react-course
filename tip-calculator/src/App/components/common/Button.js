@@ -6,9 +6,10 @@ export default function Button(props) {
              className="peer invisible"
       />
       <label htmlFor={props.name + props.value}
-             className="flex justify-center items-center h-16 text-3xl rounded-xl
-                      peer-checked:bg-slate-500">
-        {props.value}%
+             className="flex justify-center items-center h-16 text-3xl rounded-lg bg-accent-dark-cyan text-white
+                      hover:bg-primary-cyan hover:text-black
+                      peer-checked:bg-primary-cyan peer-checked:text-black">
+        {props.value}
       </label>
     </div>
   );
