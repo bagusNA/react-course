@@ -7,7 +7,7 @@ export default function Button(props) {
       />
       <label htmlFor={props.name + props.value}
              className="flex justify-center items-center h-16 text-3xl rounded-lg bg-accent-dark-cyan text-white
-                      hover:bg-primary-cyan hover:text-black
+                      hover:bg-primary-cyan hover:text-black hover:cursor-pointer
                       peer-checked:bg-primary-cyan peer-checked:text-black">
         {props.value}
       </label>
