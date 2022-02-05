@@ -1,8 +1,8 @@
 export default function ResetButton(props) {
 
   return (
-    <div className="flex justify-center items-center h-16 text-3xl rounded-lg bg-primary-cyan text-black
-                    hover:bg-accent-dark-cyan hover:text-white hover:cursor-pointer
+    <div className="flex justify-center items-center h-16 text-2xl rounded-lg bg-primary-cyan text-accent-dark-cyan
+                    hover:bg-secondary-light-cyan-1 hover:cursor-pointer
                     peer-checked:bg-accent-dark-cyan peer-checked:text-white">
       {props.value}
     </div>
