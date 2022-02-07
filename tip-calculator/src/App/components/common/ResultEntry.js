@@ -8,7 +8,8 @@ export default function ResultEntry(props) {
           / person
         </span>
       </p>
-      <p className="flex-1 text-right text-4xl lg:text-5xl font-bold text-primary-cyan">
+      <p className="flex-1 text-right text-4xl lg:text-5xl font-bold text-primary-cyan
+                    md:flex md:items-center md:justify-end">
         {props.value}
       </p>
     </div>

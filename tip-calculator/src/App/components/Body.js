@@ -1,10 +1,10 @@
 import Input from './common/Input';
 import Result from './Result';
 import Button from './common/Button';
+import TipCustomInput from './common/TipCustomInput';
 
 import {ReactComponent as IconDollar} from './common/icons/icon-dollar.svg';
 import {ReactComponent as IconPeople} from './common/icons/icon-person.svg';
-import TipCustomInput from './common/TipCustomInput';
 
 export default function Body() {
 
@@ -20,7 +20,7 @@ export default function Body() {
         <div className="py-10">
           <p className="text-xl text-slate-600 pb-4">Select Tip %</p>
           <div className="grid grid-cols-2 gap-4
-                          md:grid-cols-3">
+                          lg:grid-cols-3">
             <Button name="tip" value="5%"/>
             <Button name="tip" value="10%"/>
             <Button name="tip" value="15%"/>
@@ -32,7 +32,7 @@ export default function Body() {
         <label htmlFor="nPeople">
           <p className="text-xl py-3 text-slate-600">Number of People <br /></p>
         </label>
-        <Input id="nPeople" icon={<IconPeople/>} placeholder="0"/>
+        <Input id="nPeople" icon={<IconPeople/>} placeholder="0" noDecimal={true}/>
       </div>
       <Result />
     </div>
