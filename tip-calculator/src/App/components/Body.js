@@ -26,7 +26,7 @@ export default function Body() {
             <Button name="tip" value="15%"/>
             <Button name="tip" value="25%"/>
             <Button name="tip" value="50%"/>
-            <TipCustomInput id="customTip" placeholder="%" />
+            <TipCustomInput id="customTip" placeholder="%" noDecimal={true} />
           </div>
         </div>
         <label htmlFor="nPeople">

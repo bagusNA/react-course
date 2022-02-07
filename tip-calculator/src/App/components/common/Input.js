@@ -1,22 +1,14 @@
 import { useState } from "react"
+import validateNumber from "../../functions/validateNumber";
 
 export default function Input(props) {
 
   const [inputValue, setInputValue] = useState('');
-  
-  const validateInput = (string, noDecimal) => {
-    let regExp;
-    
-    // allow decimal number
-    regExp = /^\d+\.?\d*$/;
 
-    if ( noDecimal === true ) {
-      regExp = /^\d+$/;
-    }
-
-    if ( (string.match(regExp) && string.length <= 12)
-          || string === '' ) {
-      setInputValue(string);
+  const handleInput = e => {
+    let input = validateNumber(e.target.value, 12, props.noDecimal)
+    if ( input !== false ) {
+      setInputValue(input);
     }
   }
 
@@ -33,7 +25,7 @@ export default function Input(props) {
               id={props.id}
               placeholder={props.placeholder}
               value={inputValue}
-              onInput={e => validateInput(e.target.value, props.noDecimal)}
+              onInput={e => handleInput(e)}
               className="w-full h-12 px-3 py-0.5 bg-inherit text-[24px] text-accent-dark-cyan font-bold text-right 
                         focus:outline-none" />
     </div>
