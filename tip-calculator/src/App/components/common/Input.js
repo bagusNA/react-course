@@ -1,16 +1,16 @@
-import { useState } from "react"
-import validateNumber from "../../functions/validateNumber";
+// import { useState } from "react"
+// import validateNumber from "../../functions/validateNumber";
 
 export default function Input(props) {
 
-  const [inputValue, setInputValue] = useState('');
+  // const [inputValue, setInputValue] = useState('');
 
-  const handleInput = e => {
-    let input = validateNumber(e.target.value, 12, props.noDecimal)
-    if ( input !== false ) {
-      setInputValue(input);
-    }
-  }
+  // const handleInput = e => {
+  //   let input = validateNumber(e.target.value, 12, props.noDecimal)
+  //   if ( input !== false ) {
+  //     setInputValue(input);
+  //   }
+  // }
 
   return (
     <div className="flex items-center px-3 bg-secondary-light-cyan-2 rounded
@@ -24,8 +24,8 @@ export default function Input(props) {
       <input type="text"
               id={props.id}
               placeholder={props.placeholder}
-              value={inputValue}
-              onInput={e => handleInput(e)}
+              // value={inputValue}
+              // onInput={e => handleInput(e)}
               className="w-full h-12 px-3 py-0.5 bg-inherit text-[24px] text-accent-dark-cyan font-bold text-right 
                         focus:outline-none" />
     </div>
