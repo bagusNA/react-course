@@ -17,9 +17,9 @@ export default function App() {
       <div className="flex justify-center items-center py-12">
         <Logo />
       </div>
-      <div className="bg-white flex-1 flex flex-col rounded-t-3xl p-8">
+      <div className="bg-white flex-1 flex flex-col rounded-t-3xl p-8 text-slate-600">
         {/* Inputs */}
-        <div className="flex flex-col gap-4 flex-1">
+        <div className="flex flex-col gap-4 pb-8 flex-1 justify-between">
 
           {/* Bill Input */}
           <div className="flex flex-col">
@@ -64,7 +64,9 @@ export default function App() {
             <ResultEntry title="Total" value={32.79}/>
           </div>
 
-          <button className="bg-primary-cyan rounded-lg p-4">
+          <button 
+            className="transition bg-primary-cyan rounded-lg py-3 font-bold text-2xl text-accent-dark-cyan hover:bg-secondary-light-cyan-1"
+          >
             RESET
           </button>
         </div>
