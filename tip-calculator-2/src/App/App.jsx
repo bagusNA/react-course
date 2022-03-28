@@ -1,5 +1,6 @@
 import { ReactComponent as Logo } from './img/logo.svg';
 import TipButton from './components/TipButton';
+import ResultEntry from './components/ResultEntry';
 
 export default function App() {
   const tipButtonValues = [5, 10, 15, 25, 50];
@@ -58,9 +59,9 @@ export default function App() {
 
         {/* Results */}
         <div className="flex flex-col gap-6 p-5 bg-accent-dark-cyan rounded-2xl">
-          <div className="py-2">
-            <h1>Results</h1>
-            <h1>Results</h1>
+          <div className="flex flex-col gap-y-6 py-2">
+            <ResultEntry title="Tip Amount" value={7.27}/>
+            <ResultEntry title="Total" value={32.79}/>
           </div>
 
           <button className="bg-primary-cyan rounded-lg p-4">
