@@ -13,13 +13,17 @@ export default function App() {
 // TODO: Calculator state & logic
 
   return (
-    <div className="min-h-screen flex flex-col bg-secondary-light-cyan-1 font-['Space_Mono'] font-bold">
+    <div className="min-h-screen flex flex-col bg-secondary-light-cyan-1 font-['Space_Mono'] font-bold shadow-2xl shadow-slate-900 sm:justify-center sm:items-center">
       <div className="flex justify-center items-center py-12">
         <Logo />
       </div>
-      <div className="bg-white flex-1 flex flex-col rounded-t-3xl p-8 text-slate-600">
+      <div 
+        className="bg-white flex-1 flex flex-col gap-4 rounded-t-3xl p-8 text-slate-600 
+                  sm:container sm:flex-none sm:rounded-3xl sm:flex-row md:gap-x-8
+                  lg:max-w-5xl"
+      >
         {/* Inputs */}
-        <div className="flex flex-col gap-4 pb-8 flex-1 justify-between">
+        <div className="flex flex-col gap-4 pb-8 flex-1 justify-evenly sm:justify-between">
 
           {/* Bill Input */}
           <div className="flex flex-col">
@@ -35,7 +39,10 @@ export default function App() {
           {/* Tip button group */}
           <div>
             <p className="py-2 mb-1">Select Tip %</p>
-            <div className="grid grid-cols-2 gap-4">
+            <div 
+              className="grid grid-cols-2 gap-4
+                        md:grid-cols-3"
+            >
               {tipButtons}
               
               {/* Custom tip button */}
@@ -43,7 +50,8 @@ export default function App() {
                 type="text" 
                 name="tip-custom"
                 placeholder="Custom %" 
-                className="py-2 bg-secondary-light-cyan-2 rounded-md font-bold text-2xl text-accent-dark-cyan text-center placeholder:text-accent-dark-cyan placeholder:opacity-70"
+                className="py-2 bg-secondary-light-cyan-2 rounded-md font-bold text-2xl text-accent-dark-cyan text-center placeholder:text-accent-dark-cyan placeholder:opacity-70
+                          sm:placeholder:text-xl"
               />
             </div>
           </div>
@@ -58,8 +66,11 @@ export default function App() {
         </div>
 
         {/* Results */}
-        <div className="flex flex-col gap-6 p-5 bg-accent-dark-cyan rounded-2xl">
-          <div className="flex flex-col gap-y-6 py-2">
+        <div 
+          className="flex flex-col gap-6 p-5 bg-accent-dark-cyan rounded-2xl
+                    sm:justify-between md:w-1/2 sm:p-8"
+        >
+          <div className="flex flex-col gap-y-6 py-2 sm:py-4 sm:gap-y-12">
             <ResultEntry title="Tip Amount" value={7.27}/>
             <ResultEntry title="Total" value={32.79}/>
           </div>

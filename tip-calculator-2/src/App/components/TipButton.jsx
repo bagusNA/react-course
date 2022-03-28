@@ -6,7 +6,7 @@ function TipButton(props) {
       <input type="radio" name={props.groupName} id={props.groupName + "-" + props.value.toString()} className="peer hidden" />
       <label 
         htmlFor={props.groupName + "-" + props.value.toString()} 
-        className="transition w-full py-2 bg-accent-dark-cyan rounded-md text-3xl text-white text-center hover:bg-primary-cyan hover:text-accent-dark-cyan hover:cursor-pointer
+        className="transition w-full py-2 bg-accent-dark-cyan rounded-md text-3xl text-white text-center hover:bg-secondary-light-cyan-1 hover:text-accent-dark-cyan hover:cursor-pointer
         peer-checked:bg-primary-cyan peer-checked:text-accent-dark-cyan"
       >
         {props.value}%
