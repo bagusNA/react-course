@@ -11,6 +11,15 @@ module.exports = {
         'secondary-light-cyan-1': '#C5E4E7',
         'secondary-light-cyan-2': '#F4FAFA',
         'accent-dark-cyan': '#00494D',
+      },
+      backgroundImage: {
+        'bill-icon': "url('./App/img/icon-dollar.svg')",
+        'people-icon': "url('./App/img/icon-person.svg')"
+      },
+      backgroundPosition: {
+        'px-4': '1rem 50%',
+        'px-5': '1.25rem 50%',
+        'px-6': '1.5rem 50%'
       }
     },
   },
