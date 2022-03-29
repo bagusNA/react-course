@@ -1,16 +1,51 @@
+import { useState } from "react";
 import { ReactComponent as Logo } from './img/logo.svg';
 import TipButton from './components/TipButton';
 import ResultEntry from './components/ResultEntry';
 
+import validateInt from "./functions/validateInt";
+import validateDec from "./functions/validateDec";
+
 export default function App() {
   const tipButtonValues = [5, 10, 15, 25, 50];
-  let tipButtons = tipButtonValues.map( value => {
+  let tipButtons = tipButtonValues.map(value => {
     return (
       <TipButton groupName="tip" value={value}/>
     );
-  })
+  });
 
-// TODO: Calculator state & logic
+  // TODO: Calculator state & logic
+  const [data, setData] = useState({
+    bill: '',
+    tip: '',
+    customTip: '',
+    people: '',
+  });
+
+  function handleChange(event) {
+    let {name, value} = event.target;
+    
+    if ( 
+      (name === 'bill' && (validateDec(value, 12) || value === '')) ||
+      (name === 'people' && (validateInt(value, 4) || value === '')) ||
+      (name === 'customTip' && (validateCustomTip(value) || value === ''))
+    ) 
+    {
+      setData(prevData => {
+        return {
+          ...prevData,
+          [name]: value,
+        }
+      });
+    }
+
+  }
+
+  function validateCustomTip(value) {
+    if (value > 200) return false;
+
+    return validateInt(value);
+  }
 
   return (
     <div className="min-h-screen flex flex-col bg-secondary-light-cyan-1 font-['Space_Mono'] font-bold shadow-2xl shadow-slate-900 sm:justify-center sm:items-center">
@@ -32,6 +67,8 @@ export default function App() {
               type="text" 
               id="bill" 
               name="bill"
+              value={data.bill}
+              onChange={handleChange}
               className="py-2 pl-12 pr-6 bg-secondary-light-cyan-2 rounded-md text-right text-2xl font-bold text-accent-dark-cyan bg-bill-icon bg-no-repeat bg-scroll bg-px-5"
             />
           </div>
@@ -48,18 +85,25 @@ export default function App() {
               {/* Custom tip button */}
               <input 
                 type="text" 
-                name="tip-custom"
+                name="customTip"
                 placeholder="Custom %" 
+                value={data.customTip}
+                onChange={handleChange}
                 className="py-2 bg-secondary-light-cyan-2 rounded-md font-bold text-2xl text-accent-dark-cyan text-center placeholder:text-accent-dark-cyan placeholder:opacity-70
                           sm:placeholder:text-xl"
               />
             </div>
           </div>
 
-          {/* nPeople Input */}
+          {/* people Input */}
           <div className="flex flex-col">
-            <label htmlFor="n-people" className="mb-2">Number of People</label>
-            <input type="text" id="n-people" name="n-people"
+            <label htmlFor="people" className="mb-2">Number of People</label>
+            <input 
+              type="text" 
+              id="people" 
+              name="people"
+              value={data.people}
+              onChange={handleChange}
               className="py-2 pl-12 pr-6 bg-secondary-light-cyan-2 rounded-md text-right text-2xl font-bold text-accent-dark-cyan bg-people-icon bg-no-repeat bg-scroll bg-px-5"
             />
           </div>
