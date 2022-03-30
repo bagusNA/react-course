@@ -5,5 +5,5 @@ export default function tipPerPerson(bill, tipPercent, nPeople) {
 
   let total = (bill * tipPercent / 100) / nPeople;
 
-  return Number.isInteger(total) ? total : total.toFixed(4);
+  return Number.isInteger(total) ? total : total.toFixed(2);
 }

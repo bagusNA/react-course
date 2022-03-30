@@ -6,5 +6,5 @@ export default function totalPerPerson(bill, tipPercent, nPeople) {
   let total = ( bill + (bill * tipPercent / 100) ) / nPeople;
 
   // Round to 4 decimal places if float
-  return Number.isInteger(total) ? total : total.toFixed(4);
+  return Number.isInteger(total) ? total : total.toFixed(2);
 }

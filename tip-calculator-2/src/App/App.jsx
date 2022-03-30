@@ -22,10 +22,9 @@ function validateCustomTip(value) {
 }
 
 export default function App() {
-  // TODO: Calculator state & logic
   const [data, setData] = useState(initialData);
-  
-  const tip = data.customTip === '' ? data.tip : data.customTip;
+
+  let tip = data.tip ? data.tip : data.customTip;
   const tipAmount = tipPerPerson(data.bill, tip, data.people);
   const total = totalPerPerson(data.bill, tip, data.people)
 
@@ -40,6 +39,27 @@ export default function App() {
       (name === 'tip')
       )
     ) return false;
+
+    // Empty custom tip if tip is active
+    if ( name === 'tip') {
+      setData(prevData => {
+        return {
+          ...prevData,
+          [name]: value,
+          customTip: ''
+        }
+      });
+    }
+
+    // Empty tip if custom tip is active
+    if (data.customTip !== '') {
+      setData(prevData => {
+        return {
+          ...prevData,
+          tip: 0,
+        }
+      });
+    }
 
     setData(prevData => {
       return {
