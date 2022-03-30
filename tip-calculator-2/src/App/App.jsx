@@ -5,6 +5,8 @@ import ResultEntry from './components/ResultEntry';
 
 import validateInt from "./functions/validateInt";
 import validateDec from "./functions/validateDec";
+import tipPerPerson from './functions/tipPerPerson';
+import totalPerPerson from './functions/totalPerPerson';
 
 const initialData = {
   bill: '',
@@ -22,6 +24,10 @@ function validateCustomTip(value) {
 export default function App() {
   // TODO: Calculator state & logic
   const [data, setData] = useState(initialData);
+  
+  const tip = data.customTip === '' ? data.tip : data.customTip;
+  const tipAmount = tipPerPerson(data.bill, tip, data.people);
+  const total = totalPerPerson(data.bill, tip, data.people)
 
   function handleChange(event) {
     let {name, value} = event.target;
@@ -127,8 +133,14 @@ export default function App() {
                     sm:justify-between md:w-1/2 sm:p-8"
         >
           <div className="flex flex-col gap-y-6 py-2 sm:py-4 sm:gap-y-12">
-            <ResultEntry title="Tip Amount" value={7.27}/>
-            <ResultEntry title="Total" value={32.79}/>
+            <ResultEntry
+              title="Tip Amount"
+              value={!isNaN(tipAmount) ? tipAmount : '0'}
+            />
+            <ResultEntry 
+              title="Total" 
+              value={!isNaN(total) ? total : '0'}
+            />
           </div>
 
           <button
