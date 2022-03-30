@@ -25,24 +25,24 @@ export default function App() {
   function handleChange(event) {
     let {name, value} = event.target;
     
-    if ( 
-      (name === 'bill' && (validateDec(value, 12) || value === '')) ||
-      (name === 'people' && (validateInt(value, 4) || value === '')) ||
-      (name === 'customTip' && (validateCustomTip(value) || value === ''))
-    ) 
-    {
-      setData(prevData => {
-        return {
-          ...prevData,
-          [name]: value,
-        }
-      });
-    }
+    // Here, we check empty string so the input can be emptied
+    if ( !(
+      (name === 'bill' && (validateDec(value, 12) || value === '') ) ||
+      (name === 'people' && (validateInt(value, 4) || value === '') ) ||
+      (name === 'customTip' && (validateCustomTip(value) || value === '') ) 
+      )
+    ) return false;
 
+    setData(prevData => {
+      return {
+        ...prevData,
+        [name]: value,
+      }
+    });
   }
 
   function validateCustomTip(value) {
-    if (value > 200) return false;
+    if (value > 150) return false;
 
     return validateInt(value);
   }
