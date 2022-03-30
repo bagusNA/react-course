@@ -6,6 +6,19 @@ import ResultEntry from './components/ResultEntry';
 import validateInt from "./functions/validateInt";
 import validateDec from "./functions/validateDec";
 
+const initialData = {
+  bill: '',
+  tip: 0,
+  customTip: '',
+  people: '',
+};
+
+function validateCustomTip(value) {
+  if (value > 150) return false;
+
+  return validateInt(value);
+}
+
 export default function App() {
   const tipButtonValues = [5, 10, 15, 25, 50];
   let tipButtons = tipButtonValues.map(value => {
@@ -15,12 +28,7 @@ export default function App() {
   });
 
   // TODO: Calculator state & logic
-  const [data, setData] = useState({
-    bill: '',
-    tip: '',
-    customTip: '',
-    people: '',
-  });
+  const [data, setData] = useState(initialData);
 
   function handleChange(event) {
     let {name, value} = event.target;
@@ -41,10 +49,8 @@ export default function App() {
     });
   }
 
-  function validateCustomTip(value) {
-    if (value > 150) return false;
-
-    return validateInt(value);
+  function handleResetButton() {
+    setData(initialData)
   }
 
   return (
@@ -119,7 +125,8 @@ export default function App() {
             <ResultEntry title="Total" value={32.79}/>
           </div>
 
-          <button 
+          <button
+            onClick={handleResetButton}
             className="transition bg-primary-cyan rounded-lg py-3 font-bold text-2xl text-accent-dark-cyan hover:bg-secondary-light-cyan-1"
           >
             RESET
