@@ -20,13 +20,6 @@ function validateCustomTip(value) {
 }
 
 export default function App() {
-  const tipButtonValues = [5, 10, 15, 25, 50];
-  let tipButtons = tipButtonValues.map(value => {
-    return (
-      <TipButton groupName="tip" value={value}/>
-    );
-  });
-
   // TODO: Calculator state & logic
   const [data, setData] = useState(initialData);
 
@@ -37,7 +30,8 @@ export default function App() {
     if ( !(
       (name === 'bill' && (validateDec(value, 12) || value === '') ) ||
       (name === 'people' && (validateInt(value, 4) || value === '') ) ||
-      (name === 'customTip' && (validateCustomTip(value) || value === '') ) 
+      (name === 'customTip' && (validateCustomTip(value) || value === '') ) ||
+      (name === 'tip')
       )
     ) return false;
 
@@ -52,6 +46,18 @@ export default function App() {
   function handleResetButton() {
     setData(initialData)
   }
+
+  const tipButtonValues = [5, 10, 15, 25, 50];
+  let tipButtons = tipButtonValues.map(value => {
+    return (
+      <TipButton
+        groupName="tip" 
+        value={value} 
+        currentChecked={data.tip} 
+        onChange={handleChange}
+      />
+    );
+  });
 
   return (
     <div className="min-h-screen flex flex-col bg-secondary-light-cyan-1 font-['Space_Mono'] font-bold shadow-2xl shadow-slate-900 sm:justify-center sm:items-center">
